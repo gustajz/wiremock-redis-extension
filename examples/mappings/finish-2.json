@@ -1,0 +1,25 @@
+{
+    "request": {
+        "urlPattern": "/packing/finish",
+        "method": "POST",
+        "headers": {
+            "branch": {
+                "contains": "2"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        "jsonBody": {
+            "orders": [
+                {
+                    "id": "{{ redis key='order-id-2' }}{{ redis del='order-id-2' }}{{ redis del='customer-id-2' }}",
+                    "state": "FINISHED"
+                }
+            ]
+        }
+    }
+}
