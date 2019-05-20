@@ -9,6 +9,14 @@ The wiremock-redis-extension is a Wiremock extension to enable more complex resp
 This extension extends the native response template to include a custom handlebar adjunct for Redis communication. The goal is to use with standalone process, but can be used with JUnit too.
 
 
+## Installation
+
+    <dependency>
+        <groupId>com.github.gustajz</groupId>
+        <artifactId>wiremock-redis-extension</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+
 
 ## Usage
 
@@ -26,7 +34,7 @@ This extension extends the native response template to include a custom handleba
 
 ### Remove stored value
 
-    {{ redis del='mykey'}}
+    {{ redis del='mykey' }}
 
 ### Configure Redis environment variables
 

@@ -79,16 +79,16 @@ public class RedisTests {
                         .withBody("{{ redis key='mykey' }}!")));
 
         when().
-                get("/step1").
-                then().
-                statusCode(200).
-                body(equalTo("Welcome "));
+            get("/step1").
+        then().
+            statusCode(200).
+            body(equalTo("Welcome "));
 
         when().
-                get("/step2").
-                then().
-                statusCode(200).
-                body(equalTo("5!"));
+            get("/step2").
+        then().
+            statusCode(200).
+            body(equalTo("5!"));
 
     }
 
@@ -109,22 +109,22 @@ public class RedisTests {
                         .withBody("{{ redis key='mykey' }}!")));
 
         when().
-                get("/step1").
-                then().
-                statusCode(200).
-                body(equalTo(""));
+            get("/step1").
+        then().
+            statusCode(200).
+            body(equalTo(""));
 
         when().
-                get("/step2").
-                then().
-                statusCode(200).
-                body(equalTo("5!"));
+            get("/step2").
+        then().
+            statusCode(200).
+            body(equalTo("5!"));
 
         when().
-                get("/step3").
-                then().
-                statusCode(200).
-                body(equalTo("!"));
+            get("/step3").
+        then().
+            statusCode(200).
+            body(equalTo("!"));
 
     }
 
