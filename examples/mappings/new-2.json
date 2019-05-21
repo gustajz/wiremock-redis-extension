@@ -1,0 +1,36 @@
+{
+    "request": {
+        "urlPattern": "/packing",
+        "method": "GET",
+        "headers": {
+            "branch": {
+                "contains": "2"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json; charset=utf-8"
+        },
+        "jsonBody": {
+            "orders": [
+                {
+                    "id": "{{#redis key='order-id-2' }}{{ randomValue length=10 type='NUMERIC' }}{{/redis}}{{ redis key='order-id-2' }}",
+                    "number": "{{redis key='order-id-2' }}",
+                    "state": "NEW",
+                    "createDate": "{{now}}",
+                    "customer": {
+                        "id": "{{#redis key='customer-id-2' }}{{ randomValue length=10 type='NUMERIC' }}{{/redis}}{{ redis key='customer-id-2' }}"
+                    },
+                    "items": [
+                        {
+                            "sku": "16225007011",
+                            "quantity": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

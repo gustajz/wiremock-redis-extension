@@ -1,3 +1,5 @@
+[![Travis (.org)](https://img.shields.io/travis/gustajz/wiremock-redis-extension/master.svg)](https://travis-ci.org/gustajz/wiremock-redis-extension)
+
 # wiremock-redis-extension
 
 The wiremock-redis-extension is a Wiremock extension to enable more complex responses and scenarios, storing values between any requests and time using Redis.

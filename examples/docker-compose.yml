@@ -1,0 +1,33 @@
+version: '3.6'
+
+services:
+  redis:
+    image: redis:4.0
+    hostname: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    hostname: redis-commander
+    environment: 
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "16379:8081"
+    depends_on: 
+      - redis
+
+  wiremock:
+    build: .
+    image: my-wiremock
+    container_name: wiremock
+    hostname: wiremock
+    environment: 
+      - REDIS_HOST=redis
+    ports: 
+      - 8181:8080
+    volumes: 
+      - ./mappings/:/home/wiremock/mappings
+
